@@ -24,9 +24,7 @@ function App() {
         as="button"
         className="btn btn-danger"
         disabled={state.count === 0}
-        onClick={() =>
-          dispatch(createAction(ActionType.decrement, "Slow Work"))
-        }
+        onClick={() => dispatch(createAction(ActionType.decrement))}
       >
         Decrement
       </Box>

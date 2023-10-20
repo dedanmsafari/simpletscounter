@@ -32,6 +32,6 @@ export function createAction<T, P>(T: T, P: P) {
   return { type: T, payload: P };
 }
 
-const action = createAction(ActionType.increment, "Hard Work");
+const action = createAction(ActionType.decrement);
 
 console.log(action);
