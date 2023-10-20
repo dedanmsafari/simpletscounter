@@ -2,7 +2,7 @@ import "./App.css";
 import Button from "./components/button";
 import Box from "./components/box";
 import CountReducer from "./reducers/count";
-import { ActionType } from "./models/count";
+import { ActionType, createAction } from "./models/count";
 
 function App() {
   const [state, dispatch] = CountReducer();
@@ -15,7 +15,7 @@ function App() {
       <Button
         variant="primary"
         onClick={() =>
-          dispatch({ type: ActionType.increment, mode: "Hard Word" })
+          dispatch(createAction(ActionType.increment, "Hard Work"))
         }
       >
         Increment
@@ -25,7 +25,7 @@ function App() {
         className="btn btn-danger"
         disabled={state.count === 0}
         onClick={() =>
-          dispatch({ type: ActionType.decrement, mode: "Slow Work" })
+          dispatch(createAction(ActionType.decrement, "Slow Work"))
         }
       >
         Decrement

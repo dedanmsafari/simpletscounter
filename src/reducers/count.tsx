@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { InitialState, AnyAction, ActionType } from "../models/count";
+import { InitialState, ActionType } from "../models/count";
 
 const initialState: InitialState = {
   country: "Kenya",
@@ -7,12 +7,17 @@ const initialState: InitialState = {
   count: 15,
 };
 
+interface AnyAction {
+  type: string;
+  payload: string;
+}
+
 const reducer = (state: InitialState = initialState, action: AnyAction) => {
   if (action.type === ActionType.increment) {
-    return { ...state, mode: action.mode, count: state.count + 1 };
+    return { ...state, mode: action.payload, count: state.count + 1 };
   }
   if (action.type === ActionType.decrement) {
-    return { ...state, mode: action.mode, count: state.count - 1 };
+    return { ...state, mode: action.payload, count: state.count - 1 };
   }
 
   return state;
